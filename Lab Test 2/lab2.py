@@ -31,10 +31,11 @@ class Topology:
             
             
     def print_routing_table(self, node, dist, next_hop):
-    	print(f"Routing table for {node}:")
-    	print('Dest \t Cost \t Next Hop')
-    	for dest, cost in dist.items():
-    		print(f"{dest} \t {cost} \t {next_hop[dest]}")
+    	if node == 'E':
+    		print(f"Routing table for {node}:")
+    		print('Dest \t Cost \t Next Hop')
+    		for dest, cost in dist.items():
+    			print(f"{dest} \t {cost} \t {next_hop[dest]}")
         
 nodes = ['E', 'F', 'G', 'A', 'B', 'C', 'D']
 
@@ -50,4 +51,3 @@ t.add_direct_connection('D', 'E', 5)
 t.add_direct_connection('E', 'F', 2)
 t.add_direct_connection('F', 'G', 1)
 t.distance_vector_routing()
-
